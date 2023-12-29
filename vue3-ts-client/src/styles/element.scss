@@ -1,0 +1,48 @@
+@import url('./var.scss');
+#app{
+.el-input,.el-textarea {
+    font-size: 16px;
+  }
+  .el-input__wrapper.is-focus{box-shadow: 0 0 0 2px $primary-color inset;}
+  .el-textarea__inner:focus{box-shadow: 0 0 0 2px $primary-color inset;}
+     .el-button--primary.is-plain{
+        // --el-button-hover-text-color:#1D6242;
+            --el-button-border-color: #1D6242;
+    &:hover {
+        background: #E6FFE1;
+        color:#1D6242;
+      }
+      &:active{
+        background: #E6FFE1;
+          color: #1D6242;
+      }
+     }
+     .el-pagination{
+        display:flex;
+        justify-content: center;
+        .number{
+          margin:0 4px;
+         border-radius: 50%;
+          &.is-active {
+              background: #1D6242;
+              color: #fff;
+            }
+            &:hover{
+              background:rgba(242, 251, 240, 1);
+              color:rgba(29, 98, 66, 1);
+            }
+            &:focus{
+              box-shadow: none;
+              border:0 none !important;
+              // background:#000;
+              outline: none;
+            }
+        }
+     
+     }
+  .plantDrawer{
+    .el-drawer__body{
+      padding:0
+    }
+  }
+}

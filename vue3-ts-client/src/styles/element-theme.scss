@@ -1,0 +1,18 @@
+@forward "element-plus/theme-chalk/src/common/var.scss" with (
+  $colors: (
+    "primary": ("base": #1D6242),
+    "success": ("base": #16BA3A),
+    "warning": ("base": #FF771C),
+    "danger": ("base": #ff3030),
+    "error": ("base": #ff3030),
+    "info": ("base": #ffffff),
+  ));
+:root{
+  --el-color-primary-light-3:#247E55;
+  --el-color-primary-light-9:none;
+  --el-font-size-base:18px;
+  --el-component-size:48px;
+  --el-input-border-radius:8px;
+  --el-border-radius-base:8px;
+
+}

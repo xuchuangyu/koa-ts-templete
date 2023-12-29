@@ -1,0 +1,332 @@
+@import './var.scss';
+@font-face {
+  font-family: "DOUYU";
+  src: url('../assets/fonts/DOUYU.ttf')format('truetype');
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Source Han Serif CN";
+  src: url('../assets/fonts/SourceHanSerifCN-Bold.otf')format('opentype');
+}
+html{
+  // overflow: hidden;;
+  // overflow-x: hidden;;
+}
+body,
+html{
+  min-width:1400px;
+  background: #fff;
+}
+body{
+  // overflow-x:hidden;
+}
+body,
+html,
+#app {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  margin: 0 auto;
+  font-family: "Source Han Sans CN", "PingFang SC", Helvetica Neue, Helvetica, Hiragino Sans GB,
+    Microsoft YaHei, "微软雅黑", Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  min-height:100vh;
+  color: #353535;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+}
+
+p,
+h1,
+h3,
+h4,
+h5,
+h6,
+h2,
+li,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li,
+ul,
+ol {
+  list-style: none;
+}
+
+.anticon {
+  svg {
+    vertical-align: initial;
+  }
+}
+
+a {
+  color: #567BFF;
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  font-family: "PingFang SC";
+}
+
+a:hover {
+  color: #1D4DF9;
+}
+
+a:active {
+  color: #1D4DF9;
+}
+
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+
+/* 滚动条凹槽的颜色，还可以设置边框属性 */
+*::-webkit-scrollbar-track-piece {
+  background-color: #f8f8f8;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+/* 滚动条的宽度 */
+*::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+/* 滚动条的设置 */
+*::-webkit-scrollbar-thumb {
+  background-color: #ddd;
+  background-clip: padding-box;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  border-radius: 2em;
+}
+
+/* 滚动条鼠标移上去 */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb;
+}
+
+.mission-container {
+  position: relative;
+  width: $center-container-width;
+  min-height: 679px;
+  margin: 0 auto 114px;
+  padding-top: 27px;
+  background-color: #fcfbfc;
+}
+
+.card {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 2px;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+/* 颜色原子类 */
+.primary-color {
+  color: $primary-color
+}
+
+
+
+.primary-color:hover {
+  color: $primary-color;
+}
+
+.primary-color:active {
+  color: $primary-color;
+}
+
+
+.w-1200 {
+  width: $center-container-width;
+  margin: 0 auto;
+}
+
+// 去除number 上下箭头
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input {
+  -moz-appearance: textfield;
+}
+
+
+.pointer {
+  cursor: pointer
+}
+
+
+// 隐藏表头的 复选框按钮
+.radio-table thead .n-data-table-tr .n-checkbox {
+  display: none;
+}
+
+/* 表格样式 */
+.flex-r-c {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.f-s-b {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.f-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.f-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#app{
+@for $i from 0 through 30 {
+    .f-b-#{$i} {
+      font-size: ($i)+px;
+      font-weight: bold;
+    }
+  }
+
+  // scss特殊样式
+  @for $i from 0 through 300 {
+    .f-#{$i} {
+      font-size: ($i)+px;
+    }
+
+    .m-#{$i} {
+      margin: ($i)+px;
+    }
+    .w-#{$i*10} {
+      width: ($i*10)+px;
+    }
+
+    .m-t-#{$i} {
+      margin-top: ($i)+px;
+    }
+
+    .m-b-#{$i} {
+      margin-bottom: ($i)+px;
+    }
+
+    .m-l-#{$i} {
+      margin-left: ($i)+px;
+    }
+
+    .m-r-#{$i} {
+      margin-right: ($i)+px;
+    }
+
+    .p-#{$i} {
+      padding: ($i)+px;
+    }
+
+    .p-t-#{$i} {
+      padding-top: ($i)+px;
+    }
+
+    .p-b-#{$i} {
+      padding-bottom: ($i)+px;
+    }
+
+    .p-l-#{$i} {
+      padding-left: ($i)+px;
+    }
+
+    .p-r-#{$i} {
+      padding-right: ($i)+px;
+    }
+
+    .fz-#{$i} {
+      font-size: ($i)+px;
+    }
+
+    .h-#{$i} {
+      height: ($i)+px;
+    }
+
+    .lh-#{$i} {
+      line-height: ($i)+px;
+    }
+  }
+}
+.textcenter{
+  text-align: center;
+}
+.nowrap{
+  white-space: nowrap;
+}
+.red,
+.red:hover {
+  color: #EF4C56;
+}
+
+.n-tree {
+  .n-tree-node--selected {
+    .n-tree-node-content__text {
+      color: #EF4C56;
+    }
+  }
+}
+
+/* 单行文本隐藏 */
+.ellipsis {
+  word-wrap: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 多行文本隐藏 */
+@mixin ellipsis-line($line: 2) {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line; // 想显示多少行
+}
+
+/* 回到顶部 */
+.n-back-top {
+  z-index: 100;
+}
+
+ .preview-wrap .preview-footer-thumbs .thumb-item.active {
+  background: #1D6242 !important;
+}
+.preview-wrap .preview-footer-tools{
+  // display:none !important;
+}
+#nprogress .peg {
+  background:#1D6242 !important;
+}

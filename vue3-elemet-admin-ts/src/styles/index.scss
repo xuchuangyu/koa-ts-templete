@@ -1,0 +1,128 @@
+@import 'src/styles/variables.module';
+@import './mixin.scss';
+@import './transition.scss';
+@import 'src/styles/element-plus';
+@import './sidebar.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Arial, sans-serif;
+}
+
+label {
+  font-weight: 700;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: ' ';
+    clear: both;
+    height: 0;
+  }
+}
+
+// main-container global css
+.app-container {
+  padding: 20px;
+}
+
+// scss特殊样式
+@for $i from 0 through 300 {
+  .f-#{$i}{
+    font-size: ($i)+px;
+  }
+  .m-#{$i} {
+    margin: ($i)+px;
+  }
+  .w-#{$i*10} {
+    width: ($i*10)+px !important;
+  }
+  .m-t-#{$i} {
+    margin-top: ($i)+px;
+  }
+
+  .m-b-#{$i} {
+    margin-bottom: ($i)+px;
+  }
+
+  .m-l-#{$i} {
+    margin-left: ($i)+px;
+  }
+
+  .m-r-#{$i} {
+    margin-right: ($i)+px;
+  }
+
+  .p-#{$i} {
+    padding: ($i)+px;
+  }
+
+  .p-t-#{$i} {
+    padding-top: ($i)+px;
+  }
+
+  .p-b-#{$i} {
+    padding-bottom: ($i)+px;
+  }
+
+  .p-l-#{$i} {
+    padding-left: ($i)+px;
+  }
+
+  .p-r-#{$i} {
+    padding-right: ($i)+px;
+  }
+
+  .fz-#{$i} {
+    font-size: ($i)+px;
+  }
+
+  .h-#{$i} {
+    height: ($i)+px;
+  }
+
+  .lh-#{$i} {
+    line-height: ($i)+px;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "sourceMap": true,
+    "useDefineForClassFields": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.vue",
+    "src/types/**/*.d.ts",
+    "./auto-imports.d.ts",
+    "./components.d.ts"
+, "build/build.ts", "build/crypto.ts"  ],
+  // "extends": "@vue/tsconfig/tsconfig.web.json",
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
