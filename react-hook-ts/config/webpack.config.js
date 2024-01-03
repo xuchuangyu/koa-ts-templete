@@ -193,6 +193,15 @@ module.exports = function (webpackEnv) {
     mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
     // Stop compilation early in production
     bail: isEnvProduction,
+    devServer:{
+       //使用代理进行解决跨域的问题
+       proxy: {'/dev-api': {
+        target: 'http://127.0.0.1:8686',
+        pathRewrite:{'^/dev-api' : ''},
+        changeOrigin: true
+       }
+      }
+    },
     devtool: isEnvProduction
       ? shouldUseSourceMap
         ? 'source-map'
@@ -336,6 +345,7 @@ module.exports = function (webpackEnv) {
         ]),
       ],
     },
+    
     module: {
       strictExportPresence: true,
       rules: [
@@ -751,5 +761,6 @@ module.exports = function (webpackEnv) {
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
     performance: false,
+    
   };
 };
