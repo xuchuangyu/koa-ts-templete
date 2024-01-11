@@ -8,12 +8,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './modules/counterStore';
 import channelReducer from './modules/channelStore';
+import userStore from './modules/userStore';
 // import todoReducer from './features/todo/todoSlice';
  
  const store = configureStore({
   reducer: {
     counter: counterReducer,
     channel:channelReducer,
+    user:userStore,
   },
 });
 

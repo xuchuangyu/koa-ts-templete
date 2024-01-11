@@ -1,0 +1,28 @@
+.login-container{
+  min-height: 100vh;
+  width:100%;
+  background-color: #2d3a4b;
+  overflow: hidden;
+
+  .login-form{
+    position: relative;
+    width: 520px;
+    max-width: 100%;
+    padding: 160px 35px 0;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .title-container {
+      font-size: 26px;
+      color: #eee;
+      margin: 0px auto 40px auto;
+      text-align: center;
+      font-weight: bold;
+      
+  }
+  .tips{
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+}

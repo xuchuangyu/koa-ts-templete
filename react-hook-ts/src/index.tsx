@@ -1,7 +1,7 @@
 /*
  * @Date: 2024-01-03 14:14:52
- * @Description: 
- * @LastEditTime: 2024-01-08 15:35:03
+ * @Descripimport
+ * @LastEditTime: 2024-01-11 15:35:12
  * @FilePath: \react-hook-ts\src\index.tsx
  */
 import React from "react";
@@ -12,13 +12,21 @@ import { Provider } from 'react-redux';
 import { RouterProvider } from 'react-router-dom'
 import Router from './router/index'
 import store from './store';
+import { ConfigProvider, Button, Space, Input, Divider } from 'antd';
+import theme from '@/config/theme'
+
+
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <Provider store={store}>
-    <RouterProvider router={Router} />
+      <ConfigProvider
+            theme={theme}
+      >
+        <RouterProvider router={Router}  />
+      </ConfigProvider>
   </Provider>
 );
 

@@ -1,7 +1,7 @@
 /*
  * @Date: 2023-12-27 11:04:19
  * @Description: 
- * @LastEditTime: 2024-01-02 14:55:34
+ * @LastEditTime: 2024-01-11 16:38:26
  * @FilePath: \react-hook-ts\src\store\modules\channelStore.ts
  */
 /*
@@ -32,7 +32,6 @@ const {setChannels} = channelStore.actions
 const fetchChannelsList:any = ()=>{
   return async (dispatch:any)=>{
    const res= await MessageApi.getGoodsList()
-   console.log(res.data.data)
    dispatch(setChannels(res.data.data))
   }
 }
