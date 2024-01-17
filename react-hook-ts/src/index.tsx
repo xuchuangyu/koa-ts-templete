@@ -1,31 +1,39 @@
 /*
  * @Date: 2024-01-03 14:14:52
  * @Descripimport
- * @LastEditTime: 2024-01-11 15:35:12
+ * @LastEditTime: 2024-01-17 17:25:44
  * @FilePath: \react-hook-ts\src\index.tsx
  */
-import React from "react";
+import React,{Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from 'react-redux';
-import { RouterProvider } from 'react-router-dom'
-import Router from './router/index'
-import store from './store';
-import { ConfigProvider, Button, Space, Input, Divider } from 'antd';
+import { BrowserRouter,Routes  } from 'react-router-dom'
+import RouterBlock from 'react-router-block'
+import store, { setupStore } from './store';
+import { ConfigProvider } from 'antd';
 import theme from '@/config/theme'
+import App from "./App";
 
 
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
+// 上面说了会调用这个加载缓存
+setupStore();
+
 root.render(
   <Provider store={store}>
       <ConfigProvider
             theme={theme}
       >
-        <RouterProvider router={Router}  />
+        <Suspense>
+          <BrowserRouter>
+                  <App />
+            </BrowserRouter>
+        </Suspense>
       </ConfigProvider>
   </Provider>
 );

@@ -3,7 +3,7 @@
     <el-form ref="loginFormRef" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on"
       label-position="left">
       <div class="title-container">
-        <h3 class="title">绿之景园林管理后台</h3>
+        <h3 class="title">管理后台</h3>
         <lang-select class="set-language" />
       </div>
 

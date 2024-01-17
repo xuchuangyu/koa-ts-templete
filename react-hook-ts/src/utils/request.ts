@@ -1,12 +1,13 @@
 /*
  * @Date: 2023-12-29 18:19:21
  * @Description: 
- * @LastEditTime: 2024-01-02 14:58:11
+ * @LastEditTime: 2024-01-12 17:06:12
  * @FilePath: \react-hook-ts\src\utils\request.ts
  */
 import axios from "axios";
 import config from '../config'
-// import store from "@/store";
+import { localStorage} from '@/utils/storage'
+// impor t store from "@/store";
 
 //创建一个axios示例
 const service = axios.create({
@@ -22,6 +23,8 @@ service.interceptors.request.use(
     //   // 让每个请求携带token-- ['Authorization']为自定义key 请根据实际情况自行修改
     //   config.headers.Authorization = getToken();
     // }
+   const token= localStorage.get('token')
+   if(token) config.headers.Authorization = token;
     return config;
   },
   (error) => {

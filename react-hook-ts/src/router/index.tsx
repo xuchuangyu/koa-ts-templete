@@ -1,26 +1,44 @@
-import { createBrowserRouter,Navigate } from 'react-router-dom'
+/*
+ * @Date: 2024-01-11 16:39:10
+ * @Description: 
+ * @LastEditTime: 2024-01-17 16:22:23
+ * @FilePath: \react-hook-ts\src\router\index.tsx
+ */
+import { lazy } from "react";
+import { createBrowserRouter,Navigate,RouteObject ,useLocation  } from 'react-router-dom'
+import AuthRouter from './AuthRouter'
+import Layout from "@/layout";
 
-import Login from '../pages/Login' 
-import Article from '../pages/Article'
-import Notfound from '../pages/Notfound'
+const lazyLoad = (attr:{moduleName:string,path?:string,auth?:boolean}) => {
+  const Module = lazy(() => import(`../pages/${attr.moduleName}`));
+  return <Module attr={attr} />;
+};
 
-const Router= createBrowserRouter([
+const Router: RouteObject[]|any = [
   {
     path:'/',
     element:<Navigate to={'/article'} />
   },
   {
     path:'/login',
-    Component:Login
-  },{
-    path:'/article',
-    Component:Article
+    element:<AuthRouter>{lazyLoad({moduleName:"Login",path:'/login'})}</AuthRouter>,
+  },
+  {
+    path:'/APage',
+    element:<AuthRouter>{lazyLoad({moduleName:"APage",path:'/APage'})}</AuthRouter>,
+  },
+  {
+    path:'/BPage',
+    element:<AuthRouter>{lazyLoad({moduleName:"BPage",path:'/BPage'})}</AuthRouter>,
+  },
+  {
+    path:'/CPage',
+    element:<AuthRouter>{lazyLoad({moduleName:"CPage",path:'/CPage'})}</AuthRouter>,
   },
   {
     path:'*',
-    Component:Notfound
+    element:<AuthRouter>{lazyLoad({moduleName:"Notfound",})}</AuthRouter>
   },
-
-])
+]
 
 export default Router;
