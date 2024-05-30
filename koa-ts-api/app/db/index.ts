@@ -33,7 +33,6 @@ const db=async ()=>{
     await sequelize.authenticate();
     console.log('Connection has been established successfully')
   } catch(error){
-    debugger
     console.error('Unable to connect to the database:',error)
   }
 }

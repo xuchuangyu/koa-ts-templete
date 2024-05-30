@@ -10,9 +10,6 @@
 
 import { Context } from "koa";
 import { URLSearchParams } from "url";
-import AdminService from "../service/AdminService";
-
-
 class AdminController{
  async  getAdminList(ctx:Context){
      const usp= new URLSearchParams(ctx.querystring)
@@ -24,7 +21,6 @@ class AdminController{
         limit=Number(usp.get('limit'))
      }
     // const res= await AdminService.getAdminListByPage(page,limit)
-    // console.log(res)
     // response.success(ctx,paginate(res.rows, page, res.count,limit))
   }
 }
