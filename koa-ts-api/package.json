@@ -26,6 +26,7 @@
     "@types/log4js": "^2.3.5",
     "@types/supertest": "^2.0.16",
     "async-validator": "^4.2.5",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "jsonwebtoken": "^9.0.2",
     "koa": "^2.14.2",
@@ -35,6 +36,7 @@
     "koa-static": "^5.0.0",
     "koa2-cors": "^2.0.6",
     "log4js": "^6.9.1",
+    "mongoose": "^8.4.0",
     "mysql2": "^3.6.5",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.35.1",
@@ -43,6 +45,7 @@
     "ws": "^8.17.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/jest": "^29.5.10",
     "@types/koa-cors": "^0.0.6",
     "@types/koa2-cors": "^2.0.5",

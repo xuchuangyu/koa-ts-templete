@@ -8,14 +8,29 @@
  */
 import dotenv from 'dotenv'
 dotenv.config()
-import db from '../app/db'
-db()
 import koaBody from 'koa-body'
 import koaStatic from 'koa-static'
 import Koa from 'koa'
 import {initRouter} from './router'
 import AccesssLogMiddleware from './middleware/AccesssLogMiddleware'
+import mongoose from 'mongoose'
+import cors  from 'koa-cors'
 import path from 'path'
+
+
+mongoose
+  .connect(process.env.MONGO_URL as string, {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("DB Connetion Successfull");
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
+
+
 const app:any= new Koa;
   app
   .use(koaBody({
@@ -24,6 +39,7 @@ const app:any= new Koa;
       maxFieldsSize: 10 * 1024 * 1024,
     },
   }))
+  .use(cors())
   .use(AccesssLogMiddleware)
   .use(koaStatic(path.join(__dirname,'../statics')))
   initRouter(app)
