@@ -7,20 +7,21 @@
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 
-import koaRouter from 'koa-router'
-import IndexController from '../controller/IndexController';
-import AuthMiddleware from '../middleware/AuthMiddleware';
-import LoginController from '../controller/LoginController';
-import AdminController from '../controller/AdminController';
-import UserController from '../controller/UserController';
-import UploadController from '../controller/UploadController';
+import * as fs from 'fs';
+import {resolve,join} from 'path'
 
-const router= new koaRouter({prefix:'/api'})
+export function initRouter(app:any){
+  function pathResolve(dir: string) {
+    return resolve(__dirname, './', dir);
+  }
+  const dirpath= pathResolve('modules')
+  fs.readdirSync(dirpath).forEach(async (file: string) => {
+    if (file.endsWith('.ts')) {
+      const filePath = join(dirpath, file);
+      const module= await import(filePath)
+     
+      if(module?.default?.routes)  app.use(module.default.routes())
+    }
+  });
+}
 
-router.post('/login',LoginController.index)
-router.get('/admin/list',AdminController.getAdminList)
-router.get('/user/list',UserController.getUserList)
-router.post('/upload',UploadController.upload)
-router.use(AuthMiddleware)
-router.get('/',IndexController.index)
-export default router;

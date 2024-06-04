@@ -13,7 +13,7 @@ db()
 import koaBody from 'koa-body'
 import koaStatic from 'koa-static'
 import Koa from 'koa'
-import router from './router'
+import { initRouter } from './router'
 import { Server } from 'http'
 import AccesssLogMiddleware from './middleware/AccesssLogMiddleware'
 import path from 'path'
@@ -28,8 +28,9 @@ const app= new Koa;
     },
   }))
   .use(AccesssLogMiddleware)
-  .use(router.routes())
   .use(koaStatic(path.join(__dirname,'../statics')))
+
+  initRouter(app)
 const run = (port:any):Server=>{
   return  app.listen(port)
 }
