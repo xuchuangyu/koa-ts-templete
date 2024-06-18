@@ -3,6 +3,7 @@ import User from '../model/userModel'
 import bcrypt from 'bcrypt'
 import validate from '../../utils/validate'
 import { Rules } from 'async-validator'
+import paginate from '../../utils/paginate'
 import response from '../../utils/response'
 import UserService from '../service/UserService'
 import { URLSearchParams } from 'url'
@@ -94,10 +95,10 @@ export const setAvatar = async (ctx:Context) =>{
     },
     {new:true}
    )
-   response.success(ctx,{
-     isSet:userData?.isAvatarImageSet,
-     image:userData?.avatarImage
-   })
+  //  response.success(ctx,{
+  //    isSet:userData?.isAvatarImageSet,
+  //    image:userData?.avatarImage
+  //  })
   }catch(err){
     response.error(ctx,'接口异常',err)
   }
@@ -109,6 +110,22 @@ export const logOut = (ctx:Context)=>{
     if(!id) return response.error(ctx,'User id is required ');
     response.success(ctx)
   }catch(err:any){
-    response.success(ctx,'接口异常',err)
+    response.error(ctx,'接口异常',err)
   }
+}
+
+export const addUser=async (ctx:Context)=>{
+  await User.create({
+    nickname:'超级管理员',
+    status:1,
+    username:'admin',
+    password:'aa123456',
+  });
+  response.success(ctx)
+}
+
+export const getUserList=async (ctx:Context)=>{
+  const { pageNum=1,pageSize=10 } = ctx.query;
+  const data= await paginate(User)
+  response.success(ctx,data)
 }

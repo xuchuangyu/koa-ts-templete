@@ -17,11 +17,11 @@ import { Context } from 'koa'
  * @param {string} msg 提示信息
  * @param {number} code 状态码
  */
-function success(ctx:Context,data:any=[],msg:string='success',status:boolean=true){
+function success(ctx:Context,data:any=[],msg:string='success',code:number=200){
   ctx.body={
     data,
     msg,
-    status
+    code
   }
 }
 
@@ -33,11 +33,11 @@ function success(ctx:Context,data:any=[],msg:string='success',status:boolean=tru
  * @param {*} data
  * @param {*} code
  */
-function error(ctx:Context,msg:string='error',data:any=[],status:boolean=false){
+function error(ctx:Context,msg:string='error',data:any=[],code:number=500){
   ctx.body={
     data,
     msg,
-    status
+    code
   }
 }
 
