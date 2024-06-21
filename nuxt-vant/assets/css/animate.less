@@ -1,0 +1,108 @@
+
+.animate_fadeIn{
+  animation: FadeIn 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+.animate_fadeInUp {
+  animation: FadeInUp 1s;
+  animation-fill-mode: both;
+}
+@keyframes FadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+.animate_FadeInLeft{
+    animation: FadeInLeft 1s;
+    animation-fill-mode: both;
+}
+@keyframes FadeInLeft{
+  from {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+}
+.animate_FadeInRight {
+  animation: FadeInRight 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes FadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+@keyframes previewMove {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@for $i from 0 through 30 {
+  .animate_delay-#{$i} {
+    animation-delay:#{0.1*$i}+s;
+  }
+}
+
+@keyframes arrowMove{
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  50%{
+    transform: translate(20px);
+    opacity: 1;
+  }
+ 51% {
+     transform: translate(-10px);
+     opacity: 0;
+  }
+  52%{
+    transform: translate(-10px);
+    opacity: 1;
+  }
+  to {
+
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes btnCoverMove{
+  from{
+    transform: scale(0.5);
+  }to{
+    transform: scale(1);
+  }
+}
